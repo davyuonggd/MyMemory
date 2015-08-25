@@ -51,4 +51,12 @@ class Note: PFObject, PFSubclassing {
         user = PFUser.currentUser()
         saveInBackgroundWithBlock(nil)
     }
+    
+    func updateNote(updateNote: Note?)
+    {
+        if let updateNote = updateNote {
+            self[title!] = updateNote.title
+            self[content!] = updateNote.content
+        }
+    }
 }

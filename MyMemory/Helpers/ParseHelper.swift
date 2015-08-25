@@ -36,6 +36,26 @@ class ParseHelper {
             }
         }
     }
+    
+    static func isObjectExistedYesUpdateItWithObject(object: PFObject?) -> Bool {
+        var existed: Bool = false
+        if let object = object {
+            let query = PFQuery(className: ParseNoteClass)
+            query.getObjectInBackgroundWithId(object.objectId!, block: { (returnedObject: PFObject?, error: NSError?) -> Void in
+                if object.objectId == returnedObject?.objectId {
+                    //Do updating here
+                    //Cast PFObject to custom PFObject for updating
+                    (returnedObject as! Note).title = (object as! Note).title
+                    (returnedObject as! Note).content = (object as! Note).content
+                    //updating
+                    returnedObject?.saveInBackgroundWithBlock(nil)
+                    
+                    existed = true
+                }
+            })
+        }
+        return existed
+    }
 }
 
 extension PFObject: Equatable {

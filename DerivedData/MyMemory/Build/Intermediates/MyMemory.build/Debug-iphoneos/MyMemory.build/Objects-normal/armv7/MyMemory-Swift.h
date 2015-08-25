@@ -123,15 +123,31 @@ SWIFT_CLASS("_TtC8MyMemory11AppDelegate")
 
 @class Note;
 @class UIStoryboardSegue;
+@class UITextField;
+@class UITextView;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC8MyMemory21NewNoteViewController")
 @interface NewNoteViewController : UIViewController
 @property (nonatomic) Note * __nullable currentNote;
+@property (nonatomic, weak) IBOutlet UITextField * __nullable titleTextField;
+@property (nonatomic, weak) IBOutlet UITextView * __nullable contentTextView;
 - (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __nullable)sender;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)displayNote:(Note * __nullable)note;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NewNoteViewController (SWIFT_EXTENSION(MyMemory)) <UITextViewDelegate>
+@end
+
+
+@interface NewNoteViewController (SWIFT_EXTENSION(MyMemory)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField * __nonnull)textField;
 @end
 
 @class NSDate;
@@ -146,17 +162,6 @@ SWIFT_CLASS("_TtC8MyMemory4Note")
 + (void)initialize;
 @property (nonatomic) NSDate * __nonnull modificationDate;
 - (void)uploadNote;
-@end
-
-@class UITextField;
-@class UITextView;
-
-SWIFT_CLASS("_TtC8MyMemory25NoteDisplayViewController")
-@interface NoteDisplayViewController : UIViewController
-@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified titleTextField;
-@property (nonatomic, weak) IBOutlet UITextView * __null_unspecified contentTextView;
-- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSDateFormatter;
@@ -186,8 +191,9 @@ SWIFT_CLASS("_TtC8MyMemory14ViewController")
 - (IBAction)logoutAction:(id __nonnull)sender;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
-- (void)deleteNote:(Note * __nonnull)deletingNote;
+- (void)deleteNote:(Note * __nullable)deletingNote;
 - (IBAction)unwindToSegue:(UIStoryboardSegue * __nonnull)segue;
+- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __nullable)sender;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

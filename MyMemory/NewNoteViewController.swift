@@ -33,9 +33,9 @@ class NewNoteViewController: UIViewController {
             
             if currentNote == nil {
                 currentNote = Note()
-                currentNote?.title = title
-                currentNote?.content = content
             }
+            currentNote?.title = title
+            currentNote?.content = content
         }
     }
     
@@ -60,7 +60,7 @@ class NewNoteViewController: UIViewController {
     
     func displayNote(note: Note?) {
         if let note = note {
-            print("\ndisplayedNote: \(note)")
+            //print("\ndisplayedNote: \(note)")
             self.titleTextField?.text = note.title
             self.contentTextView?.text = note.content
         }

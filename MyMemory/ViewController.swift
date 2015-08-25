@@ -71,7 +71,10 @@ class ViewController: UIViewController {
             case "Save":
                 let source = segue.sourceViewController as! NewNoteViewController
                 let note = source.currentNote!
-                note.uploadNote()
+
+                if ParseHelper.isObjectExistedYesUpdateItWithObject(source.currentNote!) == false {
+                    note.uploadNote()
+                }                
             case "Delete":
                 let source = segue.sourceViewController as! NewNoteViewController
                 let deletingNote = source.currentNote!
@@ -84,7 +87,7 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowExistingNote" {
             let newNoteViewController = segue.destinationViewController as! NewNoteViewController
-            print("\nselectedNote: \(selectedNote)")
+            //print("\nselectedNote: \(selectedNote)")
             newNoteViewController.currentNote = selectedNote
         }
     }
