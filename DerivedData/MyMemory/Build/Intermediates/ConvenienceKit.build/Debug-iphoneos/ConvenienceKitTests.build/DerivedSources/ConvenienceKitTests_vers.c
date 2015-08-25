@@ -1,0 +1,1 @@
+ const unsigned char ConvenienceKitTestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:ConvenienceKitTests  PROJECT:ConvenienceKit-1" "\n"; const double ConvenienceKitTestsVersionNumber __attribute__ ((used)) = (double)1.;

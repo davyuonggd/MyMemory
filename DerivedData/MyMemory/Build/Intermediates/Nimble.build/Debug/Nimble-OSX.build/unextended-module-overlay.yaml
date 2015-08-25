@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Products/Debug/Nimble.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Intermediates/Nimble.build/Debug/Nimble-OSX.build/unextended-module.modulemap',
+    }]
+  }]
+}

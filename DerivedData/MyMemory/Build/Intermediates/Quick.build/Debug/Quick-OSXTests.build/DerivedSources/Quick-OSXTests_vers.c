@@ -1,0 +1,1 @@
+ const unsigned char Quick_OSXTestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Quick-OSXTests  PROJECT:Quick-1" "\n"; const double Quick_OSXTestsVersionNumber __attribute__ ((used)) = (double)1.;

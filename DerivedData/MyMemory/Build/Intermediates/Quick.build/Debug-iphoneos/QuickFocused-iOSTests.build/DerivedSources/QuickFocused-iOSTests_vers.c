@@ -1,0 +1,1 @@
+ const unsigned char QuickFocused_iOSTestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:QuickFocused-iOSTests  PROJECT:Quick-1" "\n"; const double QuickFocused_iOSTestsVersionNumber __attribute__ ((used)) = (double)1.;

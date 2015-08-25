@@ -1,0 +1,6 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "7689f6fc03736336beea93d97f1ac167"
+inputs: 
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/ViewController.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/AppDelegate.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/NoteTableViewCell.swift"

@@ -1,0 +1,1 @@
+ const unsigned char iOSAppForTestingVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:iOSAppForTesting  PROJECT:Bond-1" "\n"; const double iOSAppForTestingVersionNumber __attribute__ ((used)) = (double)1.;

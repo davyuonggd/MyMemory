@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Products/Debug/Quick.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Intermediates/Quick.build/Debug/Quick-OSX.build/unextended-module.modulemap',
+    }]
+  }]
+}

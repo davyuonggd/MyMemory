@@ -1,0 +1,4 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "c2c3fb06a7f1710350f95fbc1c155d4b"
+inputs: 
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemoryTests/MyMemoryTests.swift"

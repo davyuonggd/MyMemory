@@ -1,0 +1,10 @@
+framework module ConvenienceKit {
+  umbrella header "ConvenienceKit.h"
+
+  export *
+  module * { export * }
+}
+
+module ConvenienceKit.Swift {
+    header "ConvenienceKit-Swift.h"
+}

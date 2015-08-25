@@ -1,0 +1,48 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Products/Debug-iphoneos/Quick.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "QCKDSL.h",
+          'external-contents': "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Frameworks/ConvenienceKit/ConvenienceKit/Carthage/Checkouts/Quick/Quick/DSL/QCKDSL.h"
+        },
+        {
+          'type': 'file',
+          'name': "Quick-Swift.h",
+          'external-contents': "/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Products/Debug-iphoneos/Quick.framework/Headers/Quick-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Quick.h",
+          'external-contents': "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Frameworks/ConvenienceKit/ConvenienceKit/Carthage/Checkouts/Quick/Quick/Quick.h"
+        },
+        {
+          'type': 'file',
+          'name': "QuickConfiguration.h",
+          'external-contents': "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Frameworks/ConvenienceKit/ConvenienceKit/Carthage/Checkouts/Quick/Quick/Configuration/QuickConfiguration.h"
+        },
+        {
+          'type': 'file',
+          'name': "QuickSpec.h",
+          'external-contents': "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Frameworks/ConvenienceKit/ConvenienceKit/Carthage/Checkouts/Quick/Quick/QuickSpec.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Products/Debug-iphoneos/Quick.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/davy/Developer/iOS Programs/MyMemory/DerivedData/MyMemory/Build/Intermediates/Quick.build/Debug-iphoneos/Quick-iOS.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

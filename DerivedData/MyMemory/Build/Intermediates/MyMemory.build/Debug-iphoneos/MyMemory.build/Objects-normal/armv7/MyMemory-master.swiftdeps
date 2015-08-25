@@ -1,0 +1,10 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "716d46e2c14039f9e28963d62885a985"
+inputs: 
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/NewNoteViewController.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/ViewController.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/AppDelegate.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/NoteTableViewCell.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Models/Note.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/NoteDisplayViewController.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Helpers/ParseHelper.swift"
