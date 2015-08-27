@@ -13,6 +13,30 @@ import ParseUI
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    // the current parse query
+    var query: PFQuery? {
+        didSet {
+            oldValue?.cancel()
+        }
+    }
+    // this view can be in two different states
+    enum State {
+        case DefaultMode
+        case SearchMode
+    }
+    // whenever the state changes, perform one of the two queries and update the list
+    var state: State = State.DefaultMode {
+        didSet {
+            switch state {
+            case State.DefaultMode:
+                query = ParseHelper.getQueryForAllObjects(updateList)
+            case State.SearchMode:
+                let searchText = searchBar.text ?? ""
+                query = ParseHelper.searchObjectWithSearchText(searchText, completionBlock: updateList)
+            }
+        }
+    }
     
     var selectedNote: Note?
     
@@ -35,15 +59,13 @@ class ViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        searchBar.delegate = self
         
         let noteQuery = PFQuery(className: "Note")
         noteQuery.whereKey("user", equalTo: PFUser.currentUser()!)
@@ -56,12 +78,31 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     func deleteNote(deletingNote: Note?)
     {
         notes = notes.filter({ (note) -> Bool in
             note != deletingNote
         })
         ParseHelper.deleteObject(PFUser.currentUser()!, object: deletingNote!)
+    }
+    
+    // MARK: Update userlist
+    
+    /**
+    Is called as the completion block of all queries.
+    As soon as a query completes, this method updates the Table View.
+    */
+    func updateList(results: [AnyObject]?, error: NSError?) {
+        self.notes = results as? [Note] ?? []
+        self.tableView.reloadData()
     }
     
     //MARK: Navigation
@@ -84,6 +125,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowExistingNote" {
             let newNoteViewController = segue.destinationViewController as! NewNoteViewController
@@ -126,5 +168,23 @@ extension ViewController: UITableViewDelegate {
             let deletingNote = notes[indexPath.row] as Note
             deleteNote(deletingNote)
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        state = State.SearchMode
+    }
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+        state = State.DefaultMode
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        ParseHelper.searchObjectWithSearchText(searchText, completionBlock: updateList)
     }
 }

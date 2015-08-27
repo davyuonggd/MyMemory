@@ -162,6 +162,7 @@ SWIFT_CLASS("_TtC8MyMemory4Note")
 + (void)initialize;
 @property (nonatomic) NSDate * __nonnull modificationDate;
 - (void)uploadNote;
+- (void)updateNote:(Note * __nullable)updateNote;
 @end
 
 @class NSDateFormatter;

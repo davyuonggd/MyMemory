@@ -12,6 +12,7 @@ import Parse
 class ParseHelper {
     //Note Relation
     static let ParseNoteClass = "Note"
+    static let ParseNoteTitle = "title"
     
     //Generic
     static let ParseUser = "user"
@@ -40,21 +41,39 @@ class ParseHelper {
     static func isObjectExistedYesUpdateItWithObject(object: PFObject?) -> Bool {
         var existed: Bool = false
         if let object = object {
-            let query = PFQuery(className: ParseNoteClass)
-            query.getObjectInBackgroundWithId(object.objectId!, block: { (returnedObject: PFObject?, error: NSError?) -> Void in
-                if object.objectId == returnedObject?.objectId {
-                    //Do updating here
-                    //Cast PFObject to custom PFObject for updating
-                    (returnedObject as! Note).title = (object as! Note).title
-                    (returnedObject as! Note).content = (object as! Note).content
-                    //updating
-                    returnedObject?.saveInBackgroundWithBlock(nil)
-                    
-                    existed = true
-                }
-            })
+            if object.objectId != nil {
+                let query = PFQuery(className: ParseNoteClass)
+                query.getObjectInBackgroundWithId(object.objectId!, block: { (returnedObject: PFObject?, error: NSError?) -> Void in
+                    if object.objectId == returnedObject?.objectId {
+                        //Do updating here
+                        //Cast PFObject to custom PFObject for updating
+                        (returnedObject as! Note).title = (object as! Note).title
+                        (returnedObject as! Note).content = (object as! Note).content
+                        //updating
+                        returnedObject?.saveInBackgroundWithBlock(nil)
+                        
+                        existed = true
+                    }
+                })                
+            }
         }
         return existed
+    }
+    
+    static func getQueryForAllObjects(completionBlock: PFArrayResultBlock) -> PFQuery {
+        let query = PFQuery(className: ParseNoteClass)
+        query.whereKey(ParseUser, equalTo: PFUser.currentUser()!)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+        return query
+    }
+    
+    static func searchObjectWithSearchText(searchText: String, completionBlock: PFArrayResultBlock) -> PFQuery {
+        let query = PFQuery(className: ParseNoteClass)
+        query.whereKey(ParseUser, equalTo: PFUser.currentUser()!)
+        query.whereKey(ParseNoteTitle, matchesRegex: searchText, modifiers: "i") //- `i` - Case insensitive search
+        query.orderByAscending(ParseNoteTitle)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+        return query
     }
 }
 

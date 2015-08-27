@@ -183,16 +183,25 @@ SWIFT_CLASS("_TtC8MyMemory17NoteTableViewCell")
 @end
 
 @class UITableView;
+@class PFQuery;
+@class UISearchBar;
 
 SWIFT_CLASS("_TtC8MyMemory14ViewController")
 @interface ViewController : UIViewController
 @property (nonatomic) IBOutlet UITableView * __null_unspecified tableView;
+@property (nonatomic, weak) IBOutlet UISearchBar * __null_unspecified searchBar;
+@property (nonatomic) PFQuery * __nullable query;
 @property (nonatomic) Note * __nullable selectedNote;
 @property (nonatomic, copy) NSArray * __nonnull notes;
 - (IBAction)logoutAction:(id __nonnull)sender;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)deleteNote:(Note * __nullable)deletingNote;
+
+/// Is called as the completion block of all queries.
+/// As soon as a query completes, this method updates the Table View.
+- (void)updateList:(NSArray * __nullable)results error:(NSError * __nullable)error;
 - (IBAction)unwindToSegue:(UIStoryboardSegue * __nonnull)segue;
 - (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __nullable)sender;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -211,6 +220,13 @@ SWIFT_CLASS("_TtC8MyMemory14ViewController")
 - (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (BOOL)tableView:(UITableView * __nonnull)tableView canEditRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (void)tableView:(UITableView * __nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+@end
+
+
+@interface ViewController (SWIFT_EXTENSION(MyMemory)) <UISearchBarDelegate>
+- (void)searchBarTextDidBeginEditing:(UISearchBar * __nonnull)searchBar;
+- (void)searchBarCancelButtonClicked:(UISearchBar * __nonnull)searchBar;
+- (void)searchBar:(UISearchBar * __nonnull)searchBar textDidChange:(NSString * __nonnull)searchText;
 @end
 
 #pragma clang diagnostic pop
