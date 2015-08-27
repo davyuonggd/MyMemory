@@ -66,16 +66,6 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
-        let noteQuery = PFQuery(className: "Note")
-        noteQuery.whereKey("user", equalTo: PFUser.currentUser()!)
-        //noteQuery.includeKey("objectId")
-        noteQuery.includeKey("user")
-        noteQuery.orderByDescending("updatedAt")
-        noteQuery.findObjectsInBackgroundWithBlock { (result: [AnyObject]?, error: NSError?) -> Void in
-            self.notes = result as? [Note] ?? []
-            self.tableView.reloadData()
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -84,6 +74,17 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if (state == State.DefaultMode) {
+            let noteQuery = PFQuery(className: "Note")
+            noteQuery.whereKey("user", equalTo: PFUser.currentUser()!)
+            //noteQuery.includeKey("objectId")
+            noteQuery.includeKey("user")
+            noteQuery.orderByDescending("updatedAt")
+            noteQuery.findObjectsInBackgroundWithBlock { (result: [AnyObject]?, error: NSError?) -> Void in
+                self.notes = result as? [Note] ?? []
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func deleteNote(deletingNote: Note?)
