@@ -35,6 +35,7 @@
 		5B1A2C951B86EF3100C48016 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A2C941B86EF3100C48016 /* Note.swift */; };
 		5B1A2C971B871C5B00C48016 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A2C961B871C5B00C48016 /* NewNoteViewController.swift */; };
 		5B1A2C9C1B8B21C700C48016 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A2C9B1B8B21C700C48016 /* ParseHelper.swift */; };
+		5B1A2CA01B8F12DB00C48016 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A2C9F1B8F12DB00C48016 /* StyleConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		5B1A2C941B86EF3100C48016 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		5B1A2C961B871C5B00C48016 /* NewNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 		5B1A2C9B1B8B21C700C48016 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		5B1A2C9F1B8F12DB00C48016 /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1A2C9B1B8B21C700C48016 /* ParseHelper.swift */,
+				5B1A2C9F1B8F12DB00C48016 /* StyleConstants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1A2C971B871C5B00C48016 /* NewNoteViewController.swift in Sources */,
+				5B1A2CA01B8F12DB00C48016 /* StyleConstants.swift in Sources */,
 				5B1A28981B85737900C48016 /* ViewController.swift in Sources */,
 				5B1A28961B85737900C48016 /* AppDelegate.swift in Sources */,
 				5B1A28D91B8574C600C48016 /* NoteTableViewCell.swift in Sources */,

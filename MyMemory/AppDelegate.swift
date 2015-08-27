@@ -24,10 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Allows public read access - any user can see all objects created with this default ACL
         //Only provides write access to the user that created the object
         let acl = PFACL()
-        acl.setPublicReadAccess(true)
+        acl.setPublicReadAccess(false)
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
         loginSetup()
+        
+        UINavigationBar.appearance().barTintColor = StyleConstants.defaultBlueColor
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().translucent = false
+        
+        UIToolbar.appearance().barTintColor = StyleConstants.defaultBlueColor
+        UIToolbar.appearance().tintColor = UIColor.whiteColor()
+        UIToolbar.appearance().translucent = false
         
         return true
     }

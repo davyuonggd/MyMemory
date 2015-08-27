@@ -4,24 +4,24 @@ provides:
 nominals:
 - "C8MyMemory17NoteTableViewCell"
 class-members:
-- "titleLabel"
-- "dateFormatter"
 - "dateLabel"
+- "dateFormatter"
+- "titleLabel"
 top-level:
-- "NSDateFormatter"
 - "UITableViewCell"
-- "StringLiteralType"
 - "UILabel"
+- "StringLiteralType"
+- "NSDateFormatter"
 member-access:
-- "CSo15UITableViewCell"
-- "CSo15NSDateFormatter"
 - "C8MyMemory17NoteTableViewCell"
 - "SQ"
-- "CSo11NSFormatter"
-- "CSo11UIResponder"
+- "CSo15NSDateFormatter"
+- "CSo6UIView"
 - "CSo8NSObject"
 - "PSs9AnyObject"
-- "CSo6UIView"
+- "CSo11UIResponder"
+- "CSo11NSFormatter"
+- "CSo15UITableViewCell"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/32/Swift.swiftmodule"

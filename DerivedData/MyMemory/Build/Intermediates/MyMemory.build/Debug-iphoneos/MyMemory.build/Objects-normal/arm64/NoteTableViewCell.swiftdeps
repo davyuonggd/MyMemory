@@ -8,20 +8,20 @@ class-members:
 - "dateLabel"
 - "dateFormatter"
 top-level:
-- "UILabel"
-- "StringLiteralType"
-- "UITableViewCell"
 - "NSDateFormatter"
+- "StringLiteralType"
+- "UILabel"
+- "UITableViewCell"
 member-access:
-- "CSo8NSObject"
-- "SQ"
 - "CSo6UIView"
-- "CSo15NSDateFormatter"
-- "C8MyMemory17NoteTableViewCell"
 - "CSo11UIResponder"
+- "CSo8NSObject"
+- "CSo15NSDateFormatter"
+- "SQ"
 - "PSs9AnyObject"
-- "CSo11NSFormatter"
+- "C8MyMemory17NoteTableViewCell"
 - "CSo15UITableViewCell"
+- "CSo11NSFormatter"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/Swift.swiftmodule"

@@ -1,7 +1,8 @@
 version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
-options: "d54d547d25a46afd9f77c462fa10bf3c"
+options: "2df37a0897f9f013d889bfa89e29ec7e"
 inputs: 
 - "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/NewNoteViewController.swift"
+- "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/Helpers/StyleConstants.swift"
 - "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/ViewController.swift"
 - "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/AppDelegate.swift"
 - "/Users/davy/Developer/iOS Programs/MyMemory/MyMemory/NoteTableViewCell.swift"
