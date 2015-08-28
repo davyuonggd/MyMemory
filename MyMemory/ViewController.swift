@@ -75,15 +75,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if (state == State.DefaultMode) {
-            let noteQuery = PFQuery(className: "Note")
-            noteQuery.whereKey("user", equalTo: PFUser.currentUser()!)
-            //noteQuery.includeKey("objectId")
-            noteQuery.includeKey("user")
-            noteQuery.orderByDescending("updatedAt")
-            noteQuery.findObjectsInBackgroundWithBlock { (result: [AnyObject]?, error: NSError?) -> Void in
-                self.notes = result as? [Note] ?? []
-                self.tableView.reloadData()
-            }
+            query = ParseHelper.getQueryForAllObjects(updateList)
         }
     }
     
